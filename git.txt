@@ -1,0 +1,5 @@
+git remote set-url origin https://git.stis.ac.id/ppl-imk-kel-3/kostista.git
+git pull origin master
+git add .
+gi commit -m "xxxxx"
+git push origin master
