@@ -36,7 +36,7 @@
   <script src="<?= base_url() ?>assets/js/gmaps.min.js"></script>
   <script src="<?= base_url() ?>assets/js/theme.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <!-- main css -->
 </head>
 
 <body class="bg-light">
+  

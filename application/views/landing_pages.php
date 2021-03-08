@@ -9,9 +9,9 @@
             <h2 style="color: white">EXPLORE OTISTA</h2>
           </div>
         </div>
-
+        
+        </div>
         <div class="row justify-content-center kos-div">
-
           <div class="col-sm-4 py-2 single_course" onclick="window.location='pencarian?lokasi=1&sortby=0'">
             <div class="overlayed"></div>
             <div class="card h-100 border-0 rounded-0">
