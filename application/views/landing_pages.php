@@ -15,7 +15,7 @@
       <div class="row justify-content-center kos-div">
 
         <!-- menambahkan peta -->
-        <div id="mapid"> </div>
+        <div id="mapid" style="width:100%; height: 300px;"></div>
         <script type="text/javascript">
           var mymap = L.map('mapid').setView([-6.23144, 106.86681], 13);
           L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
