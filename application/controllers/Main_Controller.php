@@ -21,6 +21,13 @@ class Main_Controller extends CI_Controller
 			$data['user'] = $this->User_model->info_user($id);
 		}
 
+		$nampung = $this->db->select('nama,X,Y')->get('kostista_kos')->result_array();
+		$data['koordinat'] = '';
+		foreach($nampung as $koor){
+			$data['koordinat'] .= "['".$koor['nama']."', ".$koor['X'].", ".$koor['Y']."],";
+		}
+		// echo json_encode($data['koordinat']); die;
+
 		$this->load->view('templates/head');
 		$this->load->view('templates/header', $data);
 		$this->load->view('landing_pages', $data);

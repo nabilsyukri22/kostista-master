@@ -721,10 +721,13 @@ class User extends CI_Controller
 			'no_hp' => $no_hp,
 			'alamat' => $alamat,
 			'id_role' => $id_role
-		);
+		); 
+		//echo(json_encode($data));die();
+		
 		$this->User_model->input_data_user($data, 'user');
 		$this->session->set_flashdata('suksesdaftar', '<font color ="green">Anda berhasil daftar, Silahkan login.</font>');
 		redirect('Login');
+		//echo(json_encode($cek));die();
 	}
 
 	public function proses_daftar_user_google()

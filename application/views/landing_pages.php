@@ -13,21 +13,6 @@
       </div>
 
       <div class="row justify-content-center kos-div">
-
-        <!-- menambahkan peta -->
-        <div id="mapid"> </div>
-        <script type="text/javascript">
-          var mymap = L.map('mapid').setView([-6.23144, 106.86681], 13);
-          L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-              attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-              maxZoom: 18,
-              id: 'mapbox/streets-v11',
-              tileSize: 512,
-              zoomOffset: -1,
-              accessToken: 'pk.eyJ1IjoibmFiaWxzeXVrcmkiLCJhIjoiY2ttMHBoc204MWFjbDJvczJvcGZwMTV0YSJ9.P-zbUcGo_5lf-RM7xS7ZUw'
-          }).addTo(mymap);
-        </script>
-
         <div class="col-sm-4 py-2 single_course" onclick="window.location='pencarian?lokasi=1&sortby=0'">
           <div class="overlayed"></div>
           <div class="card h-100 border-0 rounded-0">
@@ -68,48 +53,50 @@
         </div>
 
       </div>
+      <br><br>
+      
+      <div class="banner_content text-center mb-4">
+        <h1 style="color: white">MAPS</h1>
+      </div>
 
+    <!-- menambahkan peta -->
+    <div id="mapid" style="width:100%; height: 500px;"> </div>
+      <script type="text/javascript">
+        var mymap = L.map('mapid').setView([-6.23144, 106.86681], 18);
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1,
+            accessToken: 'pk.eyJ1IjoibmFiaWxzeXVrcmkiLCJhIjoiY2ttMHBoc204MWFjbDJvczJvcGZwMTV0YSJ9.P-zbUcGo_5lf-RM7xS7ZUw'
+        }).addTo(mymap);
+
+        var iconLocation = L.icon({
+          iconUrl : '<?= base_url("assets/images/location.png") ?>',
+          iconSize : [30,30]
+        })
+
+        //array
+        var lokasi_array = [
+          <?php 
+            echo $koordinat;
+          
+          ?>
+        ];
+
+        //tampilkan peta menggunakan for
+        for(var i=0; i<lokasi_array.length; i++){
+          marker = new L.marker([lokasi_array[i][1], lokasi_array[i][2]],{icon:iconLocation})
+            .bindPopup(lokasi_array[i][0])
+            .addTo(mymap);
+        }
+
+      </script>
     </div>
   </div>
 </section>
 <!--================End Home Banner Area =================-->
-
-<!--================ Start Trainers Area =================-->
-<section class="trainer_area bg-light">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-5">
-        <div class="main_title">
-          <h2 class="mb-3">Cari Kosan</h2>
-          <p>
-            Rating kosan dari yang tertinggi
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="row justify-content-center d-flex align-items-center">
-<?php foreach ($sql as $kos): ?>
-  
-      <div style="cursor: pointer;" class="col-lg-3 col-md-6 col-sm-12 single-trainer " onclick="window.location='<?php echo base_url();?>detail/<?=$kos->slug ?>'">
-        <div class="thumb d-flex justify-content-sm-center">
-          <img class="img-fluid" src="<?php echo base_url();?>file/kos_image/<?=$kos->image_header ?>" alt="" />
-        </div>
-        <div class="meta-text text-sm-center">
-          <div class="h6"><?=$kos->nama ?></div>
-          <span class="ml-2 px-2 uk-badge bg-white border border-warning text-warning">
-            <span class="fa fa-star mr-1"></span><?php echo $kos->star ?>
-          </span>
-        </div>
-      </div>
-
-<?php endforeach ?>
-    </div>
-
-  </div>
-</section>
-<!--================ End Trainers Area =================-->
-
 <script>
   $(function() {
     $(document).scroll(function() {

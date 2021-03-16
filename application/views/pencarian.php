@@ -5,87 +5,133 @@
             <div class="position-sticky" style="top: 0">
 
                 <form id="form_pencarian" action="pencarian" method="get">
-                    <h2 class="my-2">Filter</h2>
+                    <h2 class="my-2">
+                    
+                        Filter
+                    
+                    </h2>
 
                     <div class="border-top my-3 border-grey"></div>
 
-                    <div class="h6">Kos untuk:</div>
+                    <div class="h6">
+                    
+                        Kos untuk:
+                        
+                    </div>
                     <?php $type = $this->input->get('kos'); ?>
                     <div class="col-12 btn-group btn-group-toggle" data-toggle="buttons">
                         <label class="col-5 btn btn-primary <?= $type == "1" ? "active" : "" ?>">
                             <input type="radio" name="kos" id="option1" value="1" <?= $type == "1" ? "checked" : "" ?>>
-                            <span style="font-size: 30px" class="fa fa-male mr-2"></span><br>Putra
+                            <span style="font-size: 30px" class="fa fa-male mr-2"></span><br>
+                            
+                            Putra
+
                         </label>
                         <label class="col-5 btn btn-primary <?= $type == "2" ? "active" : "" ?>">
                             <input type="radio" name="kos" id="option2" value="2" <?= $type == "2" ? "checked" : "" ?>>
-                            <span style="font-size: 30px" class="fa fa-female mr-2"></span><br>Putri
+                            <span style="font-size: 30px" class="fa fa-female mr-2"></span><br>
+                            
+                            Putri
+
                         </label>
                         <label class="col-5 btn btn-primary <?= $type == "3" ? "active" : "" ?>">
                             <input type="radio" name="kos" id="option3" value="3" <?= $type == "3" ? "checked" : "" ?>>
-                            <span style="font-size: 30px" class="fas fa-restroom mr-2"></span><br>Campur
+                            <span style="font-size: 30px" class="fas fa-restroom mr-2"></span><br>
+                            
+                            Campur
+
                         </label>
                     </div>
 
                     <div class="border-top my-3"></div>
 
-                    <div class="h6">Fasilitas:</div>
+                    <div class="h6">
+                    
+                        Fasilitas:
+                    
+                    </div>
                     <div class="form-check">
                         <input class="form-check-input" name="wifi" type="checkbox" value=1 id="fasilitas1">
                         <label class="form-check-label" for="fasilitas1">
+
                             Wifi
+
                         </label>
                     </div>
 
                     <div class="form-check">
                         <input class="form-check-input" name="km_dalam" type="checkbox" value=1 id="fasilitas2">
                         <label class="form-check-label" for="fasilitas2">
+
                             Kamar Mandi Dalam
+
                         </label>
                     </div>
 
                     <div class="form-check">
                         <input class="form-check-input" name="dapur" type="checkbox" value=1 id="fasilitas3">
                         <label class="form-check-label" for="fasilitas3">
+
                             Dapur
+
                         </label>
                     </div>
 
                     <div class="form-check">
                         <input class="form-check-input" name="listrik" type="checkbox" value=1 id="fasilitas3">
                         <label class="form-check-label" for="fasilitas3">
+
                             Termasuk Listrik
+
                         </label>
                     </div>
 
                     <div class="form-check">
                         <input class="form-check-input" name="air" type="checkbox" value=1 id="fasilitas3">
                         <label class="form-check-label" for="fasilitas3">
+
                             Termasuk Air
+
                         </label>
                     </div>
 
                     <div class="form-check">
                         <input class="form-check-input" name="dekat_kampus" type="checkbox" value=1 id="fasilitas3">
                         <label class="form-check-label" for="fasilitas3">
+
                             Dekat Kampus
+
                         </label>
                     </div>
 
                     <div class="border-top my-3"></div>
 
-                    <div class="h6">Lokasi:</div>
+                    <div class="h6">
+
+                        Lokasi:
+                        
+                    </div>
                     <div class="col text-center">
 
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <?php $loc = $this->input->get('lokasi') ?>
                             <label class="btn btn-primary <?= $loc == "1" ? "active" : "" ?>">
-                                <input type="radio" name="lokasi" value=1 id="option1" <?= $loc == "1" ? "checked" : "" ?>> Bonsay
+                                <input type="radio" name="lokasi" value=1 id="option1" <?= $loc == "1" ? "checked" : "" ?>> 
+                                
+                                Bonsay
+
                             </label>
                             <label class="btn btn-primary <?= $loc == "2" ? "active" : "" ?>">
-                                <input type="radio" name="lokasi" value=2 id="option2" <?= $loc == "2" ? "checked" : "" ?>> Bonasut
+                                <input type="radio" name="lokasi" value=2 id="option2" <?= $loc == "2" ? "checked" : "" ?>> 
+                                
+                                Bonasut
+
                             </label>
                             <label class="btn btn-primary <?= $loc == "3" ? "active" : "" ?>">
-                                <input type="radio" name="lokasi" value=3 id="option3" <?= $loc == "3" ? "checked" : "" ?>> Bonasel
+                                <input type="radio" name="lokasi" value=3 id="option3" <?= $loc == "3" ? "checked" : "" ?>> 
+                                
+                                Bonasel
+
                             </label>
                         </div>
 
@@ -95,7 +141,11 @@
                     <div class="border-top my-3"></div>
 
                     <div class="col text-center">
-                        <button type="reset" class="btn btn-secondary" onclick="window.location='pencarian?sortby=0'">Reset</button>
+                        <button type="reset" class="btn btn-secondary" onclick="window.location='pencarian?sortby=0'">
+                        
+                            Reset
+                        
+                        </button>
                         <button type="submit" class="btn btn-success">Cari <span class="fa fa-search"></button>
                     </div>
 
