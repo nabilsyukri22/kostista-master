@@ -1,6 +1,5 @@
-<body>
   <!--================ Start Header Menu Area =================-->
-  <header class="header_area white-header bg-primary" style="position: sticky !important">
+  <header class="header_area white-header bg-primary">
     <div class="main_menu bg-primary">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">

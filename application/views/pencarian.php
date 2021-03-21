@@ -1,186 +1,7 @@
 <div class="container-fluid">
-    <div class="row">
-
-        <div id="filter-div" class="col-12 col-md-3 card bg-light mb-3 d-md-block  collapse">
-            <div class="position-sticky" style="top: 0">
-
-                <form id="form_pencarian" action="pencarian" method="get">
-                    <h2 class="my-2">
-                    
-                        Filter
-                    
-                    </h2>
-
-                    <div class="border-top my-3 border-grey"></div>
-
-                    <div class="h6">
-                    
-                        Kos untuk:
-                        
-                    </div>
-                    <?php $type = $this->input->get('kos'); ?>
-                    <div class="col-12 btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="col-5 btn btn-primary <?= $type == "1" ? "active" : "" ?>">
-                            <input type="radio" name="kos" id="option1" value="1" <?= $type == "1" ? "checked" : "" ?>>
-                            <span style="font-size: 30px" class="fa fa-male mr-2"></span><br>
-                            
-                            Putra
-
-                        </label>
-                        <label class="col-5 btn btn-primary <?= $type == "2" ? "active" : "" ?>">
-                            <input type="radio" name="kos" id="option2" value="2" <?= $type == "2" ? "checked" : "" ?>>
-                            <span style="font-size: 30px" class="fa fa-female mr-2"></span><br>
-                            
-                            Putri
-
-                        </label>
-                        <label class="col-5 btn btn-primary <?= $type == "3" ? "active" : "" ?>">
-                            <input type="radio" name="kos" id="option3" value="3" <?= $type == "3" ? "checked" : "" ?>>
-                            <span style="font-size: 30px" class="fas fa-restroom mr-2"></span><br>
-                            
-                            Campur
-
-                        </label>
-                    </div>
-
-                    <div class="border-top my-3"></div>
-
-                    <div class="h6">
-                    
-                        Fasilitas:
-                    
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" name="wifi" type="checkbox" value=1 id="fasilitas1">
-                        <label class="form-check-label" for="fasilitas1">
-
-                            Wifi
-
-                        </label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" name="km_dalam" type="checkbox" value=1 id="fasilitas2">
-                        <label class="form-check-label" for="fasilitas2">
-
-                            Kamar Mandi Dalam
-
-                        </label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" name="dapur" type="checkbox" value=1 id="fasilitas3">
-                        <label class="form-check-label" for="fasilitas3">
-
-                            Dapur
-
-                        </label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" name="listrik" type="checkbox" value=1 id="fasilitas3">
-                        <label class="form-check-label" for="fasilitas3">
-
-                            Termasuk Listrik
-
-                        </label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" name="air" type="checkbox" value=1 id="fasilitas3">
-                        <label class="form-check-label" for="fasilitas3">
-
-                            Termasuk Air
-
-                        </label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" name="dekat_kampus" type="checkbox" value=1 id="fasilitas3">
-                        <label class="form-check-label" for="fasilitas3">
-
-                            Dekat Kampus
-
-                        </label>
-                    </div>
-
-                    <div class="border-top my-3"></div>
-
-                    <div class="h6">
-
-                        Lokasi:
-                        
-                    </div>
-                    <div class="col text-center">
-
-                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <?php $loc = $this->input->get('lokasi') ?>
-                            <label class="btn btn-primary <?= $loc == "1" ? "active" : "" ?>">
-                                <input type="radio" name="lokasi" value=1 id="option1" <?= $loc == "1" ? "checked" : "" ?>> 
-                                
-                                Bonsay
-
-                            </label>
-                            <label class="btn btn-primary <?= $loc == "2" ? "active" : "" ?>">
-                                <input type="radio" name="lokasi" value=2 id="option2" <?= $loc == "2" ? "checked" : "" ?>> 
-                                
-                                Bonasut
-
-                            </label>
-                            <label class="btn btn-primary <?= $loc == "3" ? "active" : "" ?>">
-                                <input type="radio" name="lokasi" value=3 id="option3" <?= $loc == "3" ? "checked" : "" ?>> 
-                                
-                                Bonasel
-
-                            </label>
-                        </div>
-
-                    </div>
-
-                    <input type="hidden" value="<?= $this->input->get('sortby') === null ? 0 : $this->input->get('sortby') ?>" name="sortby">
-                    <div class="border-top my-3"></div>
-
-                    <div class="col text-center">
-                        <button type="reset" class="btn btn-secondary" onclick="window.location='pencarian?sortby=0'">
-                        
-                            Reset
-                        
-                        </button>
-                        <button type="submit" class="btn btn-success">Cari <span class="fa fa-search"></button>
-                    </div>
-
-                    <div class="border-bottom my-3 border-light"></div>
-                </form>
-
-            </div>
-        </div>
-        <!-- sidebar -->
-
-        <div class="col-12 col-md-9">
-
-
-            <div class="col-12 h-auto">
-                <nav class="navbar navbar-light d-flex justify-content-between" style="margin-top: 2%; margin-bottom:-1%">
-                    <div class="flex-item">
-                        <button class="btn btn-success d-md-none" data-toggle="collapse" data-target="#filter-div" aria-expanded="false" aria-controls="filter-div"><i class="fa fa-filter mr-2"></i>Filter</button>
-                    </div>
-                    <div class="flex-item">
-                        <label class="mr-2 my-0">Urutkan :</label>
-                        <div class="dropdown d-inline-block">
-                            <button class="btn btn-primary dropdown-toggle dm1" style="width: 150px" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                (Choose one)</button>
-                            <ul class="dropdown-menu dm1" aria-labelledby="dropdownMenuButton">
-                                <li><a data-value=0 class="dropdown-item">Harga Terendah</a></li>
-                                <li><a data-value=1 class="dropdown-item">Harga Tertinggi</a></li>
-                                <li><a data-value=2 class="dropdown-item">Jarak Terdekat</a></li>
-                                <li><a data-value=3 class="dropdown-item">Ulasan</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-
-                <div class="border-top my-3"></div>
-            </div>
+    <div class="row">   
+        <!-- kos content -->
+        <div class="col-12 col-md-8 bg-light mb-3 d-md-block" style="margin-top: 140px;">
             <?php if (empty($pencarian)) { ?>
                 <div class="row h-75 w-100 h4 text-center font-italic">
                     <div class="m-auto">
@@ -234,7 +55,7 @@
 
                                                 </div>
 
-                                                <div class="flex-item align-self-stretch col text-center pl-0">
+                                                <div class="flex-item align-self-stretch col text-center mt-2">
                                                     <?php if ($kos["jumlah_tersedia"] == 0) {
                                                         echo "<span class=\"uk-label bg-white text-danger border border-danger uk-text-capitalize py-1 h-100 w-100\">
                                                     <span class=\"text-tersedia\">Kamar Tidak Tersedia</span>
@@ -245,29 +66,27 @@
                                                     <span class=\"text-tersedia\">Kamar Tersedia</span>
                                                 </span>";
                                                     } ?>
-
-
                                                 </div>
-                                                <div class="row d-flex w-100 content justify-content-center justify-content-md-start">
 
+                                                <div class="row d-flex w-100 content justify-content-center justify-content-md-start">
                                                     <?php
                                                     $t = $kos['wifi'];
                                                     if ($t < "1") {
                                                         echo
                                                             "<div class='col-4 col-md-6 col-xl-2 div-icon'>
-                                            <div class='icon-fasilitas mx-auto'>
-                                                <i class='fa fa-wifi'></i>
-                                                <span>Tidak Ada WiFi</span>
-                                            </div>
-                                        </div>";
+                                                            <div class='icon-fasilitas mx-auto'>
+                                                            <i class='fa fa-wifi'></i>
+                                                            <span>Tidak Ada WiFi</span>
+                                                            </div>
+                                                            </div>";
                                                     } else {
                                                         echo
                                                             "<div class='col-4 col-md-6 col-xl-2 div-icon'>
-                                            <div class='icon-fasilitas active mx-auto'>
-                                                <i class='fa fa-wifi'></i>
-                                                <span>Ada WiFi</span>
-                                            </div>
-                                        </div>";
+                                                            <div class='icon-fasilitas active mx-auto'>
+                                                            <i class='fa fa-wifi'></i>
+                                                            <span>Ada WiFi</span>
+                                                            </div>
+                                                            </div>";
                                                     }
                                                     ?>
 
@@ -276,19 +95,19 @@
                                                     if ($t < "1") {
                                                         echo
                                                             "<div class='col-4 col-md-6 col-xl-2 div-icon'>
-                                            <div class='icon-fasilitas mx-auto'>
-                                                <i class='fa fa-bath'></i>
-                                                <span>Kamar Mandi Luar</span>
-                                            </div>
-                                        </div>";
+                                                            <div class='icon-fasilitas mx-auto'>
+                                                            <i class='fa fa-bath'></i>
+                                                            <span>Kamar Mandi Luar</span>
+                                                            </div>
+                                                            </div>";
                                                     } else {
                                                         echo
                                                             "<div class='col-4 col-md-6 col-xl-2 div-icon'>
-                                            <div class='icon-fasilitas active mx-auto'>
-                                                <i class='fa fa-bath'></i>
-                                                <span>Kamar Mandi Dalam</span>
-                                            </div>
-                                        </div>";
+                                                            <div class='icon-fasilitas active mx-auto'>
+                                                            <i class='fa fa-bath'></i>
+                                                            <span>Kamar Mandi Dalam</span>
+                                                            </div>
+                                                            </div>";
                                                     }
                                                     ?>
 
@@ -297,19 +116,19 @@
                                                     if ($t < "1") {
                                                         echo
                                                             "<div class='col-4 col-md-6 col-xl-2 div-icon'>
-                                            <div class='icon-fasilitas mx-auto'>
-                                                <i class='fa fa-cutlery'></i>
-                                                <span>Tidak Ada Dapur</span>
-                                            </div>
-                                        </div>";
+                                                            <div class='icon-fasilitas mx-auto'>
+                                                            <i class='fa fa-cutlery'></i>
+                                                            <span>Tidak Ada Dapur</span>
+                                                            </div>
+                                                            </div>";
                                                     } else {
                                                         echo
                                                             "<div class='col-4 col-md-6 col-xl-2 div-icon'>
-                                            <div class='icon-fasilitas active mx-auto'>
-                                                <i class='fa fa-cutlery'></i>
-                                                <span>Ada Dapur</span>
-                                            </div>
-                                        </div>";
+                                                            <div class='icon-fasilitas active mx-auto'>
+                                                            <i class='fa fa-cutlery'></i>
+                                                            <span>Ada Dapur</span>
+                                                            </div>
+                                                            </div>";
                                                     }
                                                     ?>
 
@@ -318,19 +137,19 @@
                                                     if ($t < "1") {
                                                         echo
                                                             "<div class='col-4 col-md-6 col-xl-2 div-icon'>
-                                            <div class='icon-fasilitas mx-auto'>
-                                                <i class='fa fa-bolt'></i>
-                                                <span>Tidak Termasuk Listrik</span>
-                                            </div>
-                                        </div>";
+                                                            <div class='icon-fasilitas mx-auto'>
+                                                            <i class='fa fa-bolt'></i>
+                                                            <span>Tidak Termasuk Listrik</span>
+                                                            </div>
+                                                            </div>";
                                                     } else {
                                                         echo
                                                             "<div class='col-4 col-md-6 col-xl-2 div-icon'>
-                                            <div class='icon-fasilitas active mx-auto'>
-                                                <i class='fa fa-bolt'></i>
-                                                <span>Termasuk Listrik</span>
-                                            </div>
-                                        </div>";
+                                                            <div class='icon-fasilitas active mx-auto'>
+                                                            <i class='fa fa-bolt'></i>
+                                                            <span>Termasuk Listrik</span>
+                                                            </div>
+                                                            </div>";
                                                     }
                                                     ?>
 
@@ -339,19 +158,19 @@
                                                     if ($t < "1") {
                                                         echo
                                                             "<div class='col-4 col-md-6 col-xl-2 div-icon'>
-                                            <div class='icon-fasilitas mx-auto'>
-                                                <i class='fa fa-tint'></i>
-                                                <span>Tidak Termasuk Air</span>
-                                            </div>
-                                        </div>";
+                                                            <div class='icon-fasilitas mx-auto'>
+                                                            <i class='fa fa-tint'></i>
+                                                            <span>Tidak Termasuk Air</span>
+                                                            </div>
+                                                            </div>";
                                                     } else {
                                                         echo
                                                             "<div class='col-4 col-md-6 col-xl-2 div-icon'>
-                                            <div class='icon-fasilitas active mx-auto'>
-                                                <i class='fa fa-tint'></i>
-                                                <span>Termasuk Air</span>
-                                            </div>
-                                        </div>";
+                                                            <div class='icon-fasilitas active mx-auto'>
+                                                                <i class='fa fa-tint'></i>
+                                                                <span>Termasuk Air</span>
+                                                            </div>
+                                                            </div>";
                                                     }
                                                     ?>
 
@@ -360,35 +179,29 @@
                                                     if ($t < "1") {
                                                         echo
                                                             "<div class='col-4 col-md-6 col-xl-2 div-icon'>
-                                            <div class='icon-fasilitas mx-auto'>
-                                                <i class='fa fa-road'></i>
-                                                <span>Tidak Dekat Kampus</span>
-                                            </div>
-                                        </div>";
+                                                                <div class='icon-fasilitas mx-auto'>
+                                                                    <i class='fa fa-road'></i>
+                                                                    <span>Tidak Dekat Kampus</span>
+                                                                </div>
+                                                            </div>";
                                                     } else {
                                                         echo
                                                             "<div class='col-4 col-md-6 col-xl-2 div-icon'>
-                                            <div class='icon-fasilitas active mx-auto'>
-                                                <i class='fa fa-road'></i>
-                                                <span>Dekat Kampus</span>
-                                            </div>
-                                        </div>";
+                                                                <div class='icon-fasilitas active mx-auto'>
+                                                                    <i class='fa fa-road'></i>
+                                                                    <span>Dekat Kampus</span>
+                                                                </div>
+                                                            </div>";
                                                     }
                                                     ?>
                                                 </div>
-
-
                                             </div>
-
-
                                         </div>
-
                                     </div>
-
 
                                     <div class="row d-flex my-0 py-0 col">
                                         <div style="padding-top: 1%" class="d-flex w-100 justify-content-end">
-                                            <div class="col-9 p-0 text-left ">
+                                            <div class="col-9 text-left ">
                                                 <div class="pl-0 col-8">
                                                     <?php
                                                     // date_default_timezone_set('Asia/Jakarta'); 
@@ -433,12 +246,16 @@
                 <?php } ?>
             <?php } ?>
         </div>
+        <!-- end koscontent -->
+
+        <!-- menambahkan peta -->
+        <div id="mapid" class="col-12 col-md-4 bg-light card mb-3 d-md-block"></div>
+        <!-- end map -->
     </div>
-
-</div>
 </div>
 
-<script>
+<script type="text/javascript"> 
+
     $(function() {
 
         $(".dm1 li a").click(function() {
@@ -464,4 +281,32 @@
         $(".form-check-input[name='<?= $this->input->get('dekat_kampus') !== null ? "dekat_kampus" : "-" ?>']").prop("checked", true);
 
     });
+
+    // bagian map
+    var mymap = L.map('mapid').setView([-6.23144, 106.86681], 13);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'pk.eyJ1IjoibmFiaWxzeXVrcmkiLCJhIjoiY2ttMHBoc204MWFjbDJvczJvcGZwMTV0YSJ9.P-zbUcGo_5lf-RM7xS7ZUw'
+    }).addTo(mymap);
+
+    var iconLocation = L.icon({
+        iconUrl : '<?= base_url("assets/images/location.png") ?>',
+        iconSize : [30,30]
+    })
+
+    //array
+    var lokasi_array = [
+        <?php echo $koordinat; ?>
+    ];
+
+    //tampilkan peta menggunakan for
+    for(var i=0; i<lokasi_array.length; i++){
+        marker = new L.marker([lokasi_array[i][1], lokasi_array[i][2]],{icon:iconLocation})
+            .bindPopup(lokasi_array[i][0])
+            .addTo(mymap);
+    }
 </script>

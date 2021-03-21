@@ -5,6 +5,7 @@
       <!-- Required meta tags -->
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <meta http-equiv="X-UA-Compatible" content="ie-edge" />
       <meta name="google-signin-client_id" content="1001833581658-v4p7e0oj6lho72vpjb22nc9cuvb8to3a.apps.googleusercontent.com">
       <link rel="icon" href="<?= base_url() ?>assets/img/logo.ico" type="image/png" />
       <title>
@@ -48,7 +49,60 @@
       </script>
 
       <style media="screen">
-          #mapid { height : 500px; }
+        #mapid { 
+            height : 70vh; 
+            margin-top: 140px;
+            position: fixed;
+            right: 0;
+        }
+
+        .filternav{
+          display: none;
+        }
+        @media (max-width:992px){
+          .mobilMenu{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left:0;
+            margin:auto;
+            color: white;
+            transform: translateX(-100%);
+            transition: all ease 0.25s;
+            &.open{
+              transform: translateX(0);
+            }
+            .overlay{
+              position: fixed;
+              top: 0;
+              bottom: 0;
+              left: 0;
+              margin: auto;
+              background-color: rgba(0, 0,0,0.5);
+              display: none;
+              &.open{
+                display: block;
+              }
+            }
+          }
+
+          .mobilMenu.open{
+            transform: translateX(0);
+          }
+          .mobilMenu .overlay{
+            position: fixed;
+              top: 0;
+              bottom: 0;
+              left: 0;
+              margin: auto;
+              background-color: rgba(0, 0,0,0.5);
+              display: none;
+          }
+
+          .overlay.open{
+            display: block;
+          }
+        }
       </style>
 
     </head>
