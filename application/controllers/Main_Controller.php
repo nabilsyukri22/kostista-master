@@ -135,9 +135,10 @@ class Main_Controller extends CI_Controller
 		};
 
 		//maps
-		$nampung = $this->db->select('nama,X,Y')->get('kostista_kos')->result_array();
+		//$nampung = $this->db->select('nama,X,Y')->get('kostista_kos')->result_array();
+		//ini yang aku ubah ikutin ss an arfan
 		$data['koordinat'] = '';
-		foreach($nampung as $koor){
+		foreach($data["pencarian"] as $koor){
 			$data['koordinat'] .= "['".$koor['nama']."', ".$koor['X'].", ".$koor['Y']."],";
 		}
 		
@@ -230,7 +231,12 @@ class Main_Controller extends CI_Controller
 		$data['pencarian']    =   $this->User_model->search($keyword);
 
 		//maps
-		$nampung = $this->db->select('nama,X,Y')->get('kostista_kos')->result_array();
+		// ini yang aku ubah ikutin ss an arfan
+		$nampung = $this->db->select('nama,X,Y')
+			->like('nama',$keyword)
+			->or_like('alamat',$keyword)
+			->get('kostista_kos')->result_array();
+
 		$data['koordinat'] = '';
 		foreach($nampung as $koor){
 			$data['koordinat'] .= "['".$koor['nama']."', ".$koor['X'].", ".$koor['Y']."],";
