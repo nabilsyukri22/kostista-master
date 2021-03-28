@@ -2,8 +2,9 @@
 
     <div class="row justify-content-center">
 
-        <div class="col-lg-9">
+        <div class="col-lg-9" style="margin-top: 100px;">
 
+            <!-- image -->
             <div class="col-12">
 
                 <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="ratio: 4:1.5">
@@ -31,7 +32,8 @@
 
                 </div>
             </div>
-
+            <!-- end image -->
+            
             <div class="col-12 my-4">
 
                 <div class="row">
@@ -105,18 +107,20 @@
                                                                             echo "text-secondary border-secondary";
                                                                         } ?> uk-text-capitalize py-1 w-100">
                                     <span class="badge badge-<?php if ($tipe == 'Putra') {
-                                                                    echo "info";
-                                                                } else if ($tipe == 'Putri') {
-                                                                    echo "danger";
-                                                                } else {
-                                                                    echo "secondary";
-                                                                } ?> mr-1"><i class="fa <?php if ($tipe == 'Putra') {
-                                                                                            echo "fa-male";
-                                                                                        } else if ($tipe == 'Putri') {
-                                                                                            echo "fa-female";
-                                                                                        } else {
-                                                                                            echo "fa-group";
-                                                                                        } ?>" aria-hidden="true"></i></span>
+                                                                        echo "info";
+                                                                    } else if ($tipe == 'Putri') {
+                                                                        echo "danger";
+                                                                    } else {
+                                                                        echo "secondary";
+                                                                    } ?> mr-1">
+                                        <i class="fa <?php if ($tipe == 'Putra') {
+                                                                                echo "fa-male";
+                                                                            } else if ($tipe == 'Putri') {
+                                                                                echo "fa-female";
+                                                                            } else {
+                                                                                echo "fa-group";
+                                                                            } ?>" aria-hidden="true"></i>
+                                    </span>
                                     <?= $tipe ?>
                                 </span>
                             </div>
@@ -141,7 +145,8 @@
 
                 <div class="row mt-4">
 
-                    <div class="col-12 col-md-4">
+                    <div class="col-12 col-md-4 border border-dark">
+                        <!-- bagian fasilitas -->
                         <div class="col-12 px-0">
                             <h3 class="uk-heading-bullet">Fasilitas</h3>
                             <div class="row d-flex w-100 content justify-content-center justify-content-md-start">
@@ -219,9 +224,11 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- end bagina fasilitas -->
 
+                        <!-- kontak person -->
                         <div class="col-12 my-4 px-0">
-                            <div class="d-flex justify-content-center uk-section-muted px-0 py-3">
+                            <div class="d-flex justify-content-start uk-section-muted px-0 py-3 bg-success text-white">
                                 <div class="col col-auto text-grey-light my-auto h-100 pr-0">
                                     <i class="fa fa-2x fa-user-circle h-100"></i>
                                 </div>
@@ -231,6 +238,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- end kontak person -->
                     </div>
 
                     <div class="col-12 col-md-8">

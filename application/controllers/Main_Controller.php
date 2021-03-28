@@ -46,6 +46,8 @@ class Main_Controller extends CI_Controller
 					$kos1 = "Putra";
 				} elseif ($kos["kos"] == 2) {
 					$kos1 = "Putri";
+				}elseif ($kos["kos"] == 4) {
+					$kos1 = "Khusus Muslimah";
 				} elseif ($kos["kos"] == 3) {
 					$kos1 = "Campur";
 				};
@@ -221,5 +223,23 @@ class Main_Controller extends CI_Controller
 		$this->load->view('user/menu');
 		$this->load->view('footer');
 		$this->load->view('user/pencarian', $data);
+	}
+
+	function mySearch(){
+		$keyword    =   $this->input->get('keyword');
+		$data['pencarian']    =   $this->User_model->search($keyword);
+
+		//maps
+		$nampung = $this->db->select('nama,X,Y')->get('kostista_kos')->result_array();
+		$data['koordinat'] = '';
+		foreach($nampung as $koor){
+			$data['koordinat'] .= "['".$koor['nama']."', ".$koor['X'].", ".$koor['Y']."],";
+		}
+
+		$this->load->view('templates/head');
+		$this->load->view('templates/headerku', $data);
+		$this->load->view('pencarian', $data);
+		$this->load->view('templates/footer');
+		$this->load->view('templates/foot');
 	}
 }

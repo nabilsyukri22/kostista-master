@@ -54,5 +54,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['pencarian'] = 'Main_Controller/pencarian';
 $route['detail/(:any)'] = 'Main_Controller/detail/$1';
+$route['mySearch'] = 'Main_Controller/mySearch';
+//$route['mySearch/(:any)'] = 'Main_Controller/mySearch/$1';
 // $route['detail'] = 'Main_Controller/detail';
 // $route['view'] = 'Main_Controller/view_konten_kos';

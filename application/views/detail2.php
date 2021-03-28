@@ -1,6 +1,6 @@
     <h3 class="uk-heading-bullet">Ulasan</h3>
     <div class="row my-4">
-        <div class="col-12 col-lg-6 pb-4 mx-0">
+        <div class="col-12 col-lg-6 pb-4 mx-0 border-top border-dark">
             <!-- RATING - Form -->
             <div class="div-ulasan">
                 <?php if ($sudah_isi_review) { ?>
@@ -72,8 +72,9 @@
                 <?php } ?>
             </div>
         </div>
+
         <!-- BEGIN LIST REVIEW -->
-        <div class="col-12 col-lg-6 pb-4 overflow-auto div-review">
+        <div class="col-12 col-lg-6 pb-4 overflow-auto div-review border-top border-left border-dark">
             <h3 class="uk-heading-bullet">Ulasan Lainnya</h3>
             <?php foreach ($review as $r) : ?>
                 <div class="row review-section uk-section-muted p-3">
@@ -174,7 +175,11 @@
             </div>
         </div>
     </div>
-
+    
+    <div>
+        <button type="button" class="btn btn-primary my-4" onclick="window.history.back()">&larr; Kembali</button>
+    </div>
+    
     </div>
 
     </div>

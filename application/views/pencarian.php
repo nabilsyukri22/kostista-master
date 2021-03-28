@@ -1,7 +1,7 @@
 <div class="container-fluid">
-    <div class="row">   
-        <!-- kos content -->
-        <div class="col-12 col-md-8 bg-light mb-3 d-md-block" style="margin-top: 140px;">
+    <div class="row">    
+        <div class="col-7 bg-light mb-3" style="margin-top: 140px;">
+            <!-- kos content -->
             <?php if (empty($pencarian)) { ?>
                 <div class="row h-75 w-100 h4 text-center font-italic">
                     <div class="m-auto">
@@ -10,66 +10,62 @@
                 </div>
             <?php } else { ?>
                 <?php foreach ($pencarian as $kos) { ?>
-                    <div class="col-12">
-                        <div class="card mb-3" style="max-width: 100%;">
-                            <div class="row no-gutters">
-                                <div class="col-4 img-kos-container">
-                                    <img src="<?= base_url() ?>file/kos_image/<?= $kos["image_header"] ?>" class="card-img" alt="...">
-                                </div>
-                                <div class="col-8">
-                                    <div class="card-body">
-                                        <div class="h3 card-title col-12 mb-0"><?= $kos["nama"] ?></div>
-                                        <div class=" col">
-                                            <div class="card-text"><?= $kos["alamat"] ?></div>
-                                        </div>
-                                        <div class="col col-md-auto col-12" style="max-width: 80%">
+                    <div class="card mb-3" style="max-width: 100%;">
+                        <div class="row no-gutters">
+                            <div class="col-4 img-kos-container">
+                                <img src="<?= base_url() ?>file/kos_image/<?= $kos["image_header"] ?>" class="card-img" alt="...">
+                            </div>
+                            <div class="col-8">
+                                <div class="card-body">
+                                    <div class="h3 card-title col-12 mb-0"><?= $kos["nama"] ?></div>
+                                    <div class=" col">
+                                        <div class="card-text"><?= $kos["alamat"] ?></div>
+                                    </div>
+                                    <div class="col col-md-auto col-12" style="max-width: 80%">
+                                        <div class="mt-20 mb-20 row d-flex justify-content-center p-0">
+                                            <span class="ml-2 px-2 h-100 uk-badge bg-white border border-warning text-warning">
+                                                <span class="fa fa-star mr-1"></span>
+                                                <?= $kos["rating"] === null ? 0 : $kos["rating"]  ?>
+                                            </span>
+                                                
+                                            <div class="col flex-item align-self-stretch text-center pr-0 mr-2">
+                                                <?php if ($kos["lokasi"] == 'Bonsay') {
+                                                    echo "<span class=\"uk-label bg-info border text-white border-info uk-text-capitalize py-1 w-100\">" . $kos["lokasi"];
+                                                } else if ($kos["lokasi"] == 'Bonasel') {
+                                                    echo "<span class=\"uk-label bg-secondary border text-white border-secondary uk-text-capitalize py-1 w-100\">" . $kos["lokasi"];
+                                                } else {
+                                                    echo "<span class=\"uk-label bg-danger border text-white border-danger uk-text-capitalize py-1 w-100\">" . $kos["lokasi"];
+                                                } ?>
+                                            </div>
 
+                                            <div class="flex-item align-self-stretch text-center pr-0 mr-2">
+                                                <?php if ($kos["tipe"] == 'Putra') {
+                                                    echo "<span class=\"uk-label bg-white border text-info border-info uk-text-capitalize py-1 w-100\">
+                                                        <span class=\"badge badge-info mr-1\"><i class=\"fa fa-male aria-hidden=\"true\"></i></span>" . $kos["tipe"];
+                                                } else if ($kos["tipe"] == 'Putri') {
+                                                    echo "<span class=\"uk-label bg-white border text-danger border-danger uk-text-capitalize py-1 w-100\">
+                                                        <span class=\"badge badge-danger mr-1\"><i class=\"fa fa-female aria-hidden=\"true\"></i></span>" . $kos["tipe"];
+                                                } else {
+                                                    echo "<span class=\"uk-label bg-white border text-secondary border-secondary uk-text-capitalize py-1 w-100\">
+                                                        <span class=\"badge badge-secondary mr-1\"><i class=\"fa fa-group aria-hidden=\"true\"></i></span>" . $kos["tipe"];
+                                                } ?>
+                                            </div>                        
 
-                                            <div class="mt-20 mb-20 row d-flex justify-content-center p-0">
-                                                <span class="ml-2 px-2 h-100 uk-badge bg-white border border-warning text-warning">
-                                                    <span class="fa fa-star mr-1"></span>
-                                                    <?= $kos["rating"] === null ? 0 : $kos["rating"]  ?>
-                                                </span>
-                                                <div class="col flex-item align-self-stretch text-center pr-0 mr-2">
-                                                    <?php if ($kos["lokasi"] == 'Bonsay') {
-                                                        echo "<span class=\"uk-label bg-info border text-white border-info uk-text-capitalize py-1 w-100\">" . $kos["lokasi"];
-                                                    } else if ($kos["lokasi"] == 'Bonasel') {
-                                                        echo "<span class=\"uk-label bg-secondary border text-white border-secondary uk-text-capitalize py-1 w-100\">" . $kos["lokasi"];
-                                                    } else {
-                                                        echo "<span class=\"uk-label bg-danger border text-white border-danger uk-text-capitalize py-1 w-100\">" . $kos["lokasi"];
-                                                    } ?>
+                                            <div class="flex-item align-self-stretch col text-center mt-2">
+                                                <?php if ($kos["jumlah_tersedia"] == 0) {
+                                                    echo "<span class=\"uk-label bg-white text-danger border border-danger uk-text-capitalize py-1 h-100 w-100\">
+                                                        <span class=\"text-tersedia\">Kamar Tidak Tersedia</span>
+                                                        </span>";
+                                                } else {
+                                                    echo "<span class=\"uk-label bg-white text-success border border-success uk-text-capitalize py-1 h-100 w-100\">
+                                                        <span class=\"badge badge-success mr-1\">" . $kos["jumlah_tersedia"] . "</span>
+                                                        <span class=\"text-tersedia\">Kamar Tersedia</span>
+                                                        </span>";
+                                                } ?>
+                                            </div>  
 
-                                                </div>
-
-                                                <div class="flex-item align-self-stretch text-center pr-0 mr-2">
-                                                    <?php if ($kos["tipe"] == 'Putra') {
-                                                        echo "<span class=\"uk-label bg-white border text-info border-info uk-text-capitalize py-1 w-100\">
-                                                    <span class=\"badge badge-info mr-1\"><i class=\"fa fa-male aria-hidden=\"true\"></i></span>" . $kos["tipe"];
-                                                    } else if ($kos["tipe"] == 'Putri') {
-                                                        echo "<span class=\"uk-label bg-white border text-danger border-danger uk-text-capitalize py-1 w-100\">
-                                                    <span class=\"badge badge-danger mr-1\"><i class=\"fa fa-female aria-hidden=\"true\"></i></span>" . $kos["tipe"];
-                                                    } else {
-                                                        echo "<span class=\"uk-label bg-white border text-secondary border-secondary uk-text-capitalize py-1 w-100\">
-                                                    <span class=\"badge badge-secondary mr-1\"><i class=\"fa fa-group aria-hidden=\"true\"></i></span>" . $kos["tipe"];
-                                                    } ?>
-
-                                                </div>
-
-                                                <div class="flex-item align-self-stretch col text-center mt-2">
-                                                    <?php if ($kos["jumlah_tersedia"] == 0) {
-                                                        echo "<span class=\"uk-label bg-white text-danger border border-danger uk-text-capitalize py-1 h-100 w-100\">
-                                                    <span class=\"text-tersedia\">Kamar Tidak Tersedia</span>
-                                                </span>";
-                                                    } else {
-                                                        echo "<span class=\"uk-label bg-white text-success border border-success uk-text-capitalize py-1 h-100 w-100\">
-                                                    <span class=\"badge badge-success mr-1\">" . $kos["jumlah_tersedia"] . "</span>
-                                                    <span class=\"text-tersedia\">Kamar Tersedia</span>
-                                                </span>";
-                                                    } ?>
-                                                </div>
-
-                                                <div class="row d-flex w-100 content justify-content-center justify-content-md-start">
-                                                    <?php
+                                            <div class="row d-flex w-100 content justify-content-center justify-content-md-start">
+                                                <?php
                                                     $t = $kos['wifi'];
                                                     if ($t < "1") {
                                                         echo
@@ -88,9 +84,9 @@
                                                             </div>
                                                             </div>";
                                                     }
-                                                    ?>
+                                                ?>
 
-                                                    <?php
+                                                <?php
                                                     $t = $kos['km_dalam'];
                                                     if ($t < "1") {
                                                         echo
@@ -109,9 +105,9 @@
                                                             </div>
                                                             </div>";
                                                     }
-                                                    ?>
+                                                ?>
 
-                                                    <?php
+                                                <?php
                                                     $t = $kos['dapur'];
                                                     if ($t < "1") {
                                                         echo
@@ -130,9 +126,9 @@
                                                             </div>
                                                             </div>";
                                                     }
-                                                    ?>
+                                                ?>
 
-                                                    <?php
+                                                <?php
                                                     $t = $kos['listrik'];
                                                     if ($t < "1") {
                                                         echo
@@ -151,9 +147,9 @@
                                                             </div>
                                                             </div>";
                                                     }
-                                                    ?>
+                                                ?>
 
-                                                    <?php
+                                                <?php
                                                     $t = $kos['air'];
                                                     if ($t < "1") {
                                                         echo
@@ -172,9 +168,9 @@
                                                             </div>
                                                             </div>";
                                                     }
-                                                    ?>
+                                                ?>
 
-                                                    <?php
+                                                <?php
                                                     $t = $kos['dekat_kampus'];
                                                     if ($t < "1") {
                                                         echo
@@ -193,17 +189,17 @@
                                                                 </div>
                                                             </div>";
                                                     }
-                                                    ?>
-                                                </div>
+                                                ?>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
 
-                                    <div class="row d-flex my-0 py-0 col">
-                                        <div style="padding-top: 1%" class="d-flex w-100 justify-content-end">
-                                            <div class="col-9 text-left ">
-                                                <div class="pl-0 col-8">
-                                                    <?php
+                                <div class="row d-flex my-0 py-0 col">
+                                    <div style="padding-top: 1%" class="d-flex w-100 justify-content-end">
+                                        <div class="col-9 text-left">
+                                            <div class="pl-0 col-8">
+                                                <?php
                                                     // date_default_timezone_set('Asia/Jakarta'); 
                                                     $tgl = $kos["date"];
                                                     $jam = $kos["time"];
@@ -228,60 +224,32 @@
                                                     } else {
                                                         echo "<p class=\"card-text\"><small class=\"text-muted\">Terakhir update " . $diff->s . " detik yang lalu.</small></p>";
                                                     }
-                                                    ?>
-                                                </div>
-                                                <span class="h4">
-                                                    <div><?= $kos["harga_min"] === $kos["harga_max"] ? "Rp " . $kos["harga_min"] . ",00" : "Rp " . number_format($kos["harga_min"], 2, ',', '.') . " - Rp " . number_format($kos["harga_max"], 2, ',', '.')   ?> </div>
-                                                </span>
+                                                ?>            
                                             </div>
-                                            <div>
-                                                <button type="button" class="btn btn-primary my-4" onclick="window.location='detail/<?= $kos['slug'] ?>'">Selengkapnya</button>
-                                            </div>
+                                            <span class="h4">
+                                                <div><?= $kos["harga_min"] === $kos["harga_max"] ? "Rp " . $kos["harga_min"] . ",00" : "Rp " . number_format($kos["harga_min"], 2, ',', '.') . " - Rp " . number_format($kos["harga_max"], 2, ',', '.')   ?> </div>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <button type="button" class="btn btn-primary my-4" onclick="window.location='detail/<?= $kos['slug'] ?>'">Selengkapnya</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>   
                 <?php } ?>
             <?php } ?>
+           <!-- end kos content -->       
         </div>
-        <!-- end koscontent -->
 
         <!-- menambahkan peta -->
-        <div id="mapid" class="col-12 col-md-4 bg-light card mb-3 d-md-block"></div>
+        <div id="mapid" class="col-5 card"></div>
         <!-- end map -->
     </div>
 </div>
 
 <script type="text/javascript"> 
-
-    $(function() {
-
-        $(".dm1 li a").click(function() {
-
-            $(".dm1:first-child").text($(this).text());
-            var sort_by = $(this).attr("data-value")
-            $("input[name='sortby']").attr("value", sort_by)
-            $("#form_pencarian").submit()
-        });
-
-        var text_active = $("a[data-value='<?= $this->input->get('sortby') ?>']").text();
-
-        if (text_active === "") {} else {
-            $(".dm1:first-child").text(text_active);
-        };
-
-
-        $(".form-check-input[name='<?= $this->input->get('wifi') !== null ? "wifi" : "-" ?>']").prop("checked", true);
-        $(".form-check-input[name='<?= $this->input->get('km_dalam') !== null ? "km_dalam" : "-" ?>']").prop("checked", true);
-        $(".form-check-input[name='<?= $this->input->get('dapur') !== null ? "dapur" : "-" ?>']").prop("checked", true);
-        $(".form-check-input[name='<?= $this->input->get('listrik') !== null ? "listrik" : "-" ?>']").prop("checked", true);
-        $(".form-check-input[name='<?= $this->input->get('air') !== null ? "air" : "-" ?>']").prop("checked", true);
-        $(".form-check-input[name='<?= $this->input->get('dekat_kampus') !== null ? "dekat_kampus" : "-" ?>']").prop("checked", true);
-
-    });
-
     // bagian map
     var mymap = L.map('mapid').setView([-6.23144, 106.86681], 13);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {

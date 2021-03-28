@@ -1,7 +1,7 @@
 <?php foreach ($detailkos  as $detail):?>
 <div class="container-fluid h-100">
 
-    <div class="row justify-content-center">
+    <div class="row">
 
         <div class="col-lg-9">
 

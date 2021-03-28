@@ -205,8 +205,11 @@ class User_model extends CI_Model{
   function search($keyword)
     {
         $this->db->like('nama',$keyword);
+		$this->db->or_like('alamat',$keyword);
+
+		$this->db->join('(select ROUND(avg(star),1) as rating,id_kos from kostista_review group by id_kos) as b' ,'kos.id_kos = b.id_kos','left');
         $query  =   $this->db->get('kos');
-        return $query->result();
+        return $query->result_array();
     }
 
 	public function getkosby($where,$sort) {
@@ -219,7 +222,7 @@ class User_model extends CI_Model{
 	    return $sql;
   	}
   public function review_by_kos($id) {
-	    $sql = $this->db->query("SELECT r.*, u.fullname as nama FROM `kostista_review` r INNER JOIN kostista_user u ON r.id_user = u.id_user WHERE r.id_kos = $id ORDER BY time_stamp DESC")->result();
+	    $sql = $this->db->query("SELECT r.*, u.fullname as nama FROM `kostista_review` r INNER JOIN kostista_user u ON r.id_user = u.id_user WHERE r.id_kos = $id")->result();
         return $sql;
   	}
 

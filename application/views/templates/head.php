@@ -21,17 +21,14 @@
       <link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css" />
       <link rel="stylesheet" href="<?= base_url() ?>assets/css/uikit.min.css" />
       <script src="<?= base_url() ?>assets/js/vendor/jquery/jquery.js"></script>
-      <script src="<?= base_url() ?>assets/js/uikit.min.js"></script>
-      <script src="<?= base_url() ?>assets/js/uikit-icons.min.js"></script>
-      <script src="<?= base_url() ?>assets/js/bootstrap.min.js"></script>
-      <!-- Optional JavaScript -->
-      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+      <!--      
+      <script src="<?= base_url() ?>assets/js/vendor/jquery/jquery.js"></script>
+      <script src="<?= base_url() ?>assets/js/jquery-3.2.1.min.js"></script>
       <script src="<?= base_url() ?>assets/js/popper.js"></script>
-      <script src="<?= base_url() ?>assets/vendors/nice-select/js/jquery.nice-select.min.js"></script>
-      <script src="<?= base_url() ?>assets/vendors/owl-carousel/owl.carousel.min.js"></script>
-      <script src="<?= base_url() ?>assets/js/owl-carousel-thumb.min.js"></script>
-      <script src="<?= base_url() ?>assets/js/jquery.ajaxchimp.min.js"></script>
-      <script src="<?= base_url() ?>assets/js/mail-script.js"></script>
+      <script src="<?= base_url() ?>assets/js/bootstrap.min.js"></script>
+ -->
+    
       <!--gmaps Js-->
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
       <script src="<?= base_url() ?>assets/js/gmaps.min.js"></script>
@@ -50,59 +47,40 @@
 
       <style media="screen">
         #mapid { 
-            height : 70vh; 
-            margin-top: 140px;
-            position: fixed;
-            right: 0;
+          top: 140px;
+          bottom: 0;
+          height : 70vh;
+          position: fixed;
+          right: 0;
         }
 
         .filternav{
-          display: none;
+          border-top: solid white 1px;
+          color: white;
+          width: 0;
+          position: fixed;
+          z-index: 999;
+          top: 130px;
+          left: 0;
+          overflow-x: hidden;
+          transition: 0.5s;
+          padding-top: 60px;
         }
-        @media (max-width:992px){
-          .mobilMenu{
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left:0;
-            margin:auto;
-            color: white;
-            transform: translateX(-100%);
-            transition: all ease 0.25s;
-            &.open{
-              transform: translateX(0);
-            }
-            .overlay{
-              position: fixed;
-              top: 0;
-              bottom: 0;
-              left: 0;
-              margin: auto;
-              background-color: rgba(0, 0,0,0.5);
-              display: none;
-              &.open{
-                display: block;
-              }
-            }
-          }
 
-          .mobilMenu.open{
-            transform: translateX(0);
-          }
-          .mobilMenu .overlay{
-            position: fixed;
-              top: 0;
-              bottom: 0;
-              left: 0;
-              margin: auto;
-              background-color: rgba(0, 0,0,0.5);
-              display: none;
-          }
-
-          .overlay.open{
-            display: block;
+        .filternav .closebtn {
+          position: absolute;
+          top: 0;
+          right: 25px;
+          font-size: 36px;
+        }
+        @media (max-width:700px){
+          #mapid{
+            display: none;
+            position: static;
           }
         }
+
+         
       </style>
 
     </head>
