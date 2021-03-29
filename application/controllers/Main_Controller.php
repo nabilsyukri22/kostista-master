@@ -137,8 +137,8 @@ class Main_Controller extends CI_Controller
 		//maps
 		$nampung = $this->db->select('nama,X,Y')->get('kostista_kos')->result_array();
 		$data['koordinat'] = '';
-		foreach($nampung as $koor){
-			$data['koordinat'] .= "['".$koor['nama']."', ".$koor['X'].", ".$koor['Y']."],";
+		foreach($data["pencarian"] as $koor){
+			$data['koordinat'] .= "['".$koor['nama']."', ".$koor['X'].", ".$koor['Y'].", '".$koor['slug']."'],";
 		}
 		
 		$this->load->view('templates/head');
@@ -231,14 +231,14 @@ class Main_Controller extends CI_Controller
 
 		//maps
 		// ini yang aku ubah ikutin ss an arfan
-		$nampung = $this->db->select('nama,X,Y')
+		$nampung = $this->db->select('nama,X,Y,slug')
 			->like('nama',$keyword)
 			->or_like('alamat',$keyword)
 			->get('kostista_kos')->result_array();
 
 		$data['koordinat'] = '';
 		foreach($nampung as $koor){
-			$data['koordinat'] .= "['".$koor['nama']."', ".$koor['X'].", ".$koor['Y']."],";
+			$data['koordinat'] .= "['".$koor['nama']."', ".$koor['X'].", ".$koor['Y'].", '".$koor['slug']."'],";
 		}
 
 		$this->load->view('templates/head');

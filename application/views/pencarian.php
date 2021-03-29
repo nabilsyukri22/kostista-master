@@ -274,7 +274,7 @@
     //tampilkan peta menggunakan for
     for(var i=0; i<lokasi_array.length; i++){
         marker = new L.marker([lokasi_array[i][1], lokasi_array[i][2]],{icon:iconLocation})
-            .bindPopup(lokasi_array[i][0])
+            .bindPopup(lokasi_array[i][0]+`<br><a href='<?= base_url('detail/`+lokasi_array[i][3]+`') ?>'>Selengkapnya</a>`)
             .addTo(mymap);
     }
 </script>
