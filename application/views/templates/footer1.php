@@ -8,6 +8,9 @@
                     </div>
                 </div>
             <!-- #Footer -->
+            </aside>
+        <!-- #END# Left Sidebar -->
+        </section>
 
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <!-- Jquery Core Js -->

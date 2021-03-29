@@ -135,10 +135,9 @@ class Main_Controller extends CI_Controller
 		};
 
 		//maps
-		//$nampung = $this->db->select('nama,X,Y')->get('kostista_kos')->result_array();
-		//ini yang aku ubah ikutin ss an arfan
+		$nampung = $this->db->select('nama,X,Y')->get('kostista_kos')->result_array();
 		$data['koordinat'] = '';
-		foreach($data["pencarian"] as $koor){
+		foreach($nampung as $koor){
 			$data['koordinat'] .= "['".$koor['nama']."', ".$koor['X'].", ".$koor['Y']."],";
 		}
 		

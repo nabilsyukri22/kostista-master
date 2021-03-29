@@ -66,7 +66,7 @@
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
           <?php $loc = $this->input->get('lokasi') ?>
             <label class="btn btn-primary <?= $loc == "1" ? "active" : "" ?>">
-                <input type="radio" name="lokasi" value=1 id="option1" <?= $loc == "1" ? "checked" : "" ?>> Bonsay
+              <input type="radio" name="lokasi" value=1 id="option1" <?= $loc == "1" ? "checked" : "" ?>> Bonsay
             </label>
             <label class="btn btn-primary <?= $loc == "2" ? "active" : "" ?>">
               <input type="radio" name="lokasi" value=2 id="option2" <?= $loc == "2" ? "checked" : "" ?>> Bonasut
